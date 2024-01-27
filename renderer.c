@@ -8,18 +8,19 @@ int main(void)
 {
     void *state = NULL;
     while(true) {
-        while(system(COMPILE_STRING) != 0){
-			fprintf(stderr, "Whoops! Failed to compile!\n");
-			fprintf(stderr, "Press return to try again.\n");
-			getchar();
-		}
+        while(system(COMPILE_STRING) != 0) {
+            fprintf(stderr, "Whoops! Failed to compile!\n");
+            fprintf(stderr, "Press return to try again.\n");
+            getchar();
+	}
+
         void *module = dlopen("./bin/game_module.so", RTLD_NOW);
         if (module == NULL) {
-			fprintf(stderr, "Failed to load library. (%s)\n", dlerror());
-			fprintf(stderr, "Press return to try again.\n");
-			getchar();
+	    fprintf(stderr, "Failed to load library. (%s)\n", dlerror());
+	    fprintf(stderr, "Press return to try again.\n");
+	    getchar();
 			
-			continue;
+	    continue;
         }
 
         typedef void* module_main_function(void* saved_state);
