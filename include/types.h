@@ -2,6 +2,7 @@
 #define TYPES_H
 
 #include <stdlib.h>
+#include <stdint.h>
 
 typedef float    f32;
 typedef double   f64;

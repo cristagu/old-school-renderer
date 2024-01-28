@@ -1,3 +1,5 @@
+#include <math.h>
+
 #include "graphics.h"
 #include "mathematics.h"
 
